@@ -15,8 +15,8 @@ class EnterName extends React.Component {
     })
   }
 
-  setName(){
-    this.props.setName(this.state.inputValue)
+  setName() {
+    this.props.setName(this.state.inputValue);
   }
 
 

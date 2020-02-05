@@ -20,6 +20,7 @@ class GameArea extends React.Component {
 
   setName(name) {
     this.setState({playerName: name, gameStatus: 'recruiting'});
+    this.props.socket.emit('playerJoin', {name});
   }
 
   codeEntered() {
