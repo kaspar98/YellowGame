@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('/bkg.png');
+  animation:120s scroll infinite linear;
 }
 
 code {
@@ -148,4 +150,115 @@ code {
   color: orangered;
   border-color: black;
   border: 2px;
+}
+
+.guessing-screen {
+  margin: 0;
+}
+.guessing-screen-keskele {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guessing-screen h1 {
+  font-size: 72px;
+  font-family: "play", sans-serif;
+  text-align:center;
+}
+
+.box.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  padding: .5rem;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.03);
+  border-radius: 4px;
+
+  color: #84613D;
+  font-family: "play", sans-serif;
+  background: #FDF9EA;
+  border-bottom: 1px solid #F9F2D6;
+  border-right: 1px solid #F9F2D6;
+}
+
+.box p {
+  max-width: 125px;
+  text-align: center;
+  background: rgba(255,255,255,0.5);
+  margin: .25rem;
+  padding: .25rem;
+}
+
+
+@keyframes scroll{
+  100%{
+    background-position:0 -3600px;
+  }
+}
+
+.animate
+{
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+}
+
+.action-button
+{
+  position: relative;
+  padding: 10px 40px;
+  margin: 0px 10px 10px 0px;
+  float: left;
+  border-radius: 10px;
+  color: #000;
+  height: 69px;
+  width: 200px;
+}
+
+.button-text
+{
+  font-family: "play", sans-serif;
+  font-size: 25px;
+  text-decoration: none;
+  text-align:center;
+  vertical-align: middle;
+  line-height: 69px;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+  cursor: pointer;
+}
+
+.violet
+{
+  background-color: #ccccff;
+  border-bottom: 5px solid #8484fc;
+}
+
+.red
+{
+  background-color: #ffcccc;
+  border-bottom: 5px solid #fca0a0;
+}
+
+.green
+{
+  background-color: #ccffcc;
+  border-bottom: 5px solid #95fc95;
+}
+
+.cyan
+{
+  background-color: #ccffff;
+  border-bottom: 5px solid #7afcfc;
+}
+
+.action-button:active
+{
+  transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+  border-bottom: 1px solid;
 }
