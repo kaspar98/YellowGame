@@ -66,4 +66,23 @@ code {
   box-sizing: border-box;
 }
 
+.host-screen-container {
+  text-align: center;
+  padding: 2%;
+}
 
+.host-screen-info {
+    display: inline-block;
+    text-align: left;
+}
+
+.host-screen-start {
+  display: inline-block;
+}
+
+.game-code {
+  font-size: 300%;
+  color: orangered;
+  border-color: black;
+  border: 2px;
+}
