@@ -10,8 +10,13 @@ class MainMenu extends React.Component {
 
     return (
       <React.Fragment>
-        <button className="host-button" onClick={becomeHost}>Host</button>
-        <button className="join-button" onClick={joinGame}>Join</button>
+        <div id="hostorjoinquestion">
+        <h1>Do you want to host a game or join an existing game?</h1>
+        </div>
+        <div id="startbutton_flex-container">
+        <div><button className="host-button" onClick={becomeHost}>Host</button></div>
+        <div><button className="join-button" onClick={joinGame}>Join</button></div>
+        </div>
       </React.Fragment>
     );
   }
