@@ -6,7 +6,11 @@ class WaitingForPlayers extends React.Component {
   }
 
   render() {
-    return <h1>Waiting for Players</h1>;
+    return (
+      <div class="waitingplayers">
+      <div><p>Waiting for players...</p></div>
+      </div>
+    )
   }
 }
 

@@ -66,4 +66,38 @@ code {
   box-sizing: border-box;
 }
 
+.waitingplayers{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.waitingplayers>div {
+  height: 500px;
+  text-align: center;
+  width: 1200px;
+  letter-spacing: 4px;
+  font-size: 30px;
+  margin-top: 10%;
+  font-weight: bold;
+  overflow: hidden;
+  background: linear-gradient(to left, #C7CEEA, #B5EAD7, #E2F0CB, #FFDAC1, #FFB7B2,#FF9AA2);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 4s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  background-color: #A9A9A9
+  }
+
+  @keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
+
 
