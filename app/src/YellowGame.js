@@ -2,11 +2,13 @@ import React from 'react';
 import MainMenu from './MainMenu';
 import GameArea from './GameArea';
 import HostScreen from './HostScreen';
-import socketIOClient from 'socket.io-client';
+import io from 'socket.io-client';
 
 class YellowGame extends React.Component {
   constructor(props) {
     super(props);
+
+    this.socket = io.connect('http://localhost:14000');
 
     this.state = {deviceType: null};
 
@@ -25,9 +27,9 @@ class YellowGame extends React.Component {
   render() {
     switch (this.state.deviceType) {
       case 'player':
-        return <GameArea />;
+        return <GameArea socket={this.socket} />;
       case 'host':
-        return <HostScreen />;
+        return <HostScreen socket={this.socket} />;
       default:
         return <MainMenu becomeHost={this.becomeHost} joinGame={this.joinGame} />;
     }
