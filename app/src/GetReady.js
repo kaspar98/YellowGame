@@ -6,7 +6,11 @@ class GetReady extends React.Component {
   }
 
   render() {
-    return <h1>Get ready!</h1>;
+    return (
+      <div class="getready">
+        <div><h1>Get ready!</h1></div>
+        <div><p>5</p></div>
+    </div>);
   }
 }
 

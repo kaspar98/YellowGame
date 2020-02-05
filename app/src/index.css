@@ -67,3 +67,16 @@ code {
 }
 
 
+.getready{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.getready>div {
+  text-align: center;
+  height: 200px;
+  width: 300px;
+}
