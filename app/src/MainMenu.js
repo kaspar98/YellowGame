@@ -8,8 +8,8 @@ class MainMenu extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Host</h1>
-        <h1>Join</h1>
+        <button className="host-button">Host</button>
+        <button className="join-button">Join</button>
       </React.Fragment>
     );
   }
