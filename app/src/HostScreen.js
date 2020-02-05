@@ -2,6 +2,13 @@ import React from 'react';
 
 import GetReady from './GetReady';
 
+function getArrayRandomElement(arr) {
+  if (arr && arr.length) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+  // The undefined will be returned if the empty array was passed
+}
+
 class HostScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -31,13 +38,16 @@ class HostScreen extends React.Component {
 
       if (countdown == 0) {
         clearInterval(id);
+        this.props.socket.emit('gameState', {state: 'in_game'});
       }
 
     }, 1000);
   }
 
   startGame() {
-    this.props.socket.emit('gameState', 'starting');
+    const drawer = getArrayRandomElement(this.state.players);
+
+    this.props.socket.emit('gameState', {state: 'starting', drawer});
     this.props.socket.emit('countdown', 10);
     this.setState({hostState: 'starting', countdown: 10});
     this.broadcastCountdown();
