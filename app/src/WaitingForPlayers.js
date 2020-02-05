@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class WaitingForPlayers extends React.Component {
   constructor(props) {
@@ -8,9 +8,11 @@ class WaitingForPlayers extends React.Component {
   render() {
     return (
       <div class="waitingplayers">
-      <div><p>Waiting for players...</p></div>
+        <div>
+          <p>Waiting for players...</p>
+        </div>
       </div>
-    )
+    );
   }
 }
 

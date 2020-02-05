@@ -1,15 +1,13 @@
-import React from 'react';
+import React from "react";
 
 class GetReady extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return (
-            <h1>GAME STARTING IN 10.. 9 ...</h1>
-        );
-    }
+  render() {
+    return <h1>GAME STARTING IN 10.. 9 ...</h1>;
+  }
 }
 
 export default GetReady;

@@ -1,11 +1,8 @@
-import React from 'react';
-
+import React from "react";
 
 class DrawingScreen extends React.Component {
-  render() {
-    return (
-      <h1>Draw here!</h1>
-    );
+  render() {
+    return <h1>Draw here!</h1>;
   }
 }
 
