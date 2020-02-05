@@ -1,11 +1,17 @@
 import React from 'react';
+import MainMenu from './MainMenu';
+import socketIOClient from 'socket.io-client';
 
-function YellowGame() {
-  return (
-    <h1>
-      Yellow Game
-    </h1>
-  );
+class YellowGame extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <MainMenu />
+    );
+  }
 }
 
 export default YellowGame;
