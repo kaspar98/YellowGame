@@ -48,7 +48,7 @@ class HostScreen extends React.Component {
   render() {
     switch (this.state.hostState) {
       case 'lobby':
-        return <RecruitingPlayers startGame={this.startGame}>;
+        return <RecruitingPlayers startGame={this.startGame} />;
       case 'starting':
         return <GetReady />;
       default:
