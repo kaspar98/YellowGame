@@ -22,10 +22,25 @@ class HostScreen extends React.Component {
     });
   }
 
+  broadcastCountdown() {
+    const id = setInterval(() => {
+      const countdown = Math.max(this.state.countdown - 1, 0);
+
+      this.setState({countdown});
+      this.props.socket.emit('countdown', countdown);
+
+      if (countdown == 0) {
+        clearInterval(id);
+      }
+
+    }, 1000);
+  }
+
   startGame() {
     this.props.socket.emit('gameState', 'starting');
     this.props.socket.emit('countdown', 10);
-    this.setState({hostState: 'starting'});
+    this.setState({hostState: 'starting', countdown: 10});
+    this.broadcastCountdown();
   }
 
   render() {
