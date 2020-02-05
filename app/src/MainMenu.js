@@ -6,10 +6,12 @@ class MainMenu extends React.Component {
   }
 
   render() {
+    const {becomeHost, joinGame} = this.props;
+
     return (
       <React.Fragment>
-        <button className="host-button">Host</button>
-        <button className="join-button">Join</button>
+        <button className="host-button" onClick={becomeHost}>Host</button>
+        <button className="join-button" onClick={joinGame}>Join</button>
       </React.Fragment>
     );
   }
