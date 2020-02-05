@@ -1,8 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import GetReady from './GetReady';
+import GetReady from "./GetReady";
 import RecruitingPlayers from "./RecruitingPlayers";
-
 
 function getArrayRandomElement(arr) {
   if (arr && arr.length) {
@@ -17,14 +16,14 @@ class HostScreen extends React.Component {
 
     this.state = {
       players: [],
-      hostState: 'lobby'
+      hostState: "lobby"
     };
 
     this.startGame = this.startGame.bind(this);
   }
 
   componentDidMount() {
-    this.props.socket.on('playerJoin', ({name}) => {
+    this.props.socket.on("playerJoin", ({ name }) => {
       this.setState({
         players: [...this.state.players, name]
       });
@@ -35,31 +34,35 @@ class HostScreen extends React.Component {
     const id = setInterval(() => {
       const countdown = Math.max(this.state.countdown - 1, 0);
 
-      this.setState({countdown});
-      this.props.socket.emit('countdown', countdown);
+      this.setState({ countdown });
+      this.props.socket.emit("countdown", countdown);
 
       if (countdown == 0) {
         clearInterval(id);
-        this.props.socket.emit('gameState', {state: 'in_game'});
+        this.props.socket.emit("gameState", { state: "in_game" });
       }
-
     }, 1000);
   }
 
   startGame() {
     const drawer = getArrayRandomElement(this.state.players);
 
-    this.props.socket.emit('gameState', {state: 'starting', drawer});
-    this.props.socket.emit('countdown', 10);
-    this.setState({hostState: 'starting', countdown: 10});
+    this.props.socket.emit("gameState", { state: "starting", drawer });
+    this.props.socket.emit("countdown", 10);
+    this.setState({ hostState: "starting", countdown: 10 });
     this.broadcastCountdown();
   }
 
   render() {
     switch (this.state.hostState) {
-      case 'lobby':
-        return <RecruitingPlayers startGame={this.startGame} />;
-      case 'starting':
+      case "lobby":
+        return (
+          <RecruitingPlayers
+            startGame={this.startGame}
+            players={this.state.players}
+          />
+        );
+      case "starting":
         return <GetReady />;
       default:
         return null;
