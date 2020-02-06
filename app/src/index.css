@@ -374,30 +374,17 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: C3E4FD;
 }
 .extrastartscreen>div {
-  height: 100px;
   text-align: center;
   font-size: 30px;
-  margin-top: 5%;
   overflow: hidden;
 }
+
 .extrastartscreen img {
-  max-width: 80%;
-  padding-left: 13%;
+  max-width: 50%;
 }
 
-.youhaveguessed {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-
-.youhaveguessed>div {
-  text-align: center;
-  height: 100px;
-  width: 300px;
+.you-are-drawing {
+  transition: opacity 1s ease-in-out;
 }

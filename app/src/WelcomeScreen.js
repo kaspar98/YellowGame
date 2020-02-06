@@ -7,11 +7,10 @@ class WelcomeScreen extends React.Component {
   render() {
 
     return (
-        <div class="extrastartscreen">
-        <div><p>Press on the logo to start</p></div>
-        <img src={logo} alt="Logo" onClick={this.props.onLogoClicked}/>
+        <div className="extrastartscreen">
+          <div><h2>Press on the logo to start playing</h2></div>
+          <img src={logo} alt="Logo" onClick={this.props.onLogoClicked}/>
         </div>
-
     );
   }
 }
