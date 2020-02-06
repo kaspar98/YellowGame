@@ -6,7 +6,14 @@ class GetReady extends React.Component {
   }
 
   render() {
-    return <h1>GAME STARTING IN 10.. 9 ...</h1>;
+    return (
+      <div className="waitingplayers">
+        <div>
+         <p>Get Ready!</p>
+          <b>{this.props.countdown}</b>
+        </div>
+      </div>
+    );
   }
 }
 

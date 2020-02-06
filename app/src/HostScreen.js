@@ -95,7 +95,7 @@ class HostScreen extends React.Component {
           />
         );
       case "starting":
-        return <GetReady />;
+        return <GetReady countdown={this.state.countdown} />;
       case "in_game":
         return (
           <HostDrawingScreen
