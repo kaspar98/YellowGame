@@ -21,21 +21,16 @@ class EnterName extends React.Component {
   render() {
     return (
       <div className="enter-code-container">
-        <form>
-          Your name:
-          <input
-            className="input-field"
-            type="text"
-            name="code"
-            onChange={this.onNameChange}
-          />
+        <span className="enter-code-text">Enter Your Name</span>
+        <div className="enter-code-form">
+          <input className="enter-code-input-field" type="text" name="code" />
           <input
             className="submit-button"
             type="button"
             onClick={this.setName}
-            value="Enter name"
+            value="GO"
           />
-        </form>
+        </div>
       </div>
     );
   }
