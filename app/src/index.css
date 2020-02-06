@@ -386,6 +386,18 @@ body {
 .extrastartscreen img {
   max-width: 80%;
   padding-left: 13%;
+}
 
+.youhaveguessed {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
 
+.youhaveguessed>div {
+  text-align: center;
+  height: 100px;
+  width: 300px;
 }
