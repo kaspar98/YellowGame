@@ -54,7 +54,7 @@ class GameArea extends React.Component {
   }
 
   onGuess(option) {
-    this.setState({ hasSubmitted: true });
+    this.setState({ hasSubmitted: true, isGuessCorrect: option === this.state.problem.subject });
     this.props.socket.emit("guessSubmitted", {
       correct: option === this.state.problem.subject,
       player: this.state.playerName
@@ -80,7 +80,7 @@ class GameArea extends React.Component {
         if (this.state.isDrawing) {
           return <DrawingScreen />;
         } else if (this.state.hasSubmitted) {
-          return <GuessSubmitted />;
+          return <GuessSubmitted isGuessCorrect={this.state.isGuessCorrect} />;
         } else {
           return (
             <GuessingScreen

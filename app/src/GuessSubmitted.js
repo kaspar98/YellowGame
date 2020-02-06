@@ -1,8 +1,14 @@
 import React from "react";
+import CorrectAnswer from "./CorrectAnswer"
+import WrongAnswer from "./WrongAnswer"
 
 class GuessSubmitted extends React.Component {
   render() {
-    return <h1>Your answer has been submitted!</h1>;
+    if (this.props.isGuessCorrect) {
+      return <CorrectAnswer />;
+    } else {
+      return <WrongAnswer />;
+    }
   }
 }
 
