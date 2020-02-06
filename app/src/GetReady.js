@@ -9,7 +9,7 @@ class GetReady extends React.Component {
     return (
       <div className="waitingplayers">
         <div>
-         <p>Get Ready!</p>
+          <p>Get Ready!</p>
           <b>{this.props.countdown}</b>
         </div>
       </div>

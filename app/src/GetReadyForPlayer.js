@@ -5,9 +5,16 @@ class GetReadyForPlayer extends React.Component {
     return (
       <div className="waitingplayers">
         <div>
-         <p>Get Ready!</p>
+          <p>Get Ready!</p>
           <b>{this.props.countdown}</b>
-         {this.props.isDrawing && <h2 className="you-are-drawing" style={{opacity: this.props.isDrawing ? 1 : 0}}>You are drawing!</h2>}
+          {this.props.isDrawing && (
+            <h2
+              className="you-are-drawing"
+              style={{ opacity: this.props.isDrawing ? 1 : 0 }}
+            >
+              You are drawing!
+            </h2>
+          )}
         </div>
       </div>
     );

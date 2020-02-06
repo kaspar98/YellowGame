@@ -28,6 +28,7 @@ class HostScreen extends React.Component {
     };
 
     this.startGame = this.startGame.bind(this);
+    this.startDrawCountdown = this.startDrawCountdown.bind(this);
   }
 
   componentDidMount() {
@@ -46,6 +47,22 @@ class HostScreen extends React.Component {
     });
   }
 
+  startDrawCountdown() {
+    this.setState({ countdown: 20 });
+    this.props.socket.emit("countdown", 20);
+
+    const id = setInterval(() => {
+      const countdown = Math.max(this.state.countdown - 1, 0);
+      this.setState({ countdown });
+      this.props.socket.emit("countdown", countdown);
+
+      if (countdown === 0) {
+        clearInterval(id);
+        this.startGame();
+      }
+    }, 1000);
+  }
+
   broadcastCountdown() {
     const id = setInterval(() => {
       const countdown = Math.max(this.state.countdown - 1, 0);
@@ -57,6 +74,7 @@ class HostScreen extends React.Component {
         clearInterval(id);
         this.props.socket.emit("gameState", { state: "in_game" });
         this.setState({ hostState: "in_game" });
+        this.startDrawCountdown();
       }
     }, 1000);
   }
@@ -102,6 +120,7 @@ class HostScreen extends React.Component {
             players={this.state.players}
             scores={this.state.scores}
             drawer={this.state.drawer}
+            socket={this.props.socket}
           />
         );
       default:

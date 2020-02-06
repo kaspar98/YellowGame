@@ -27,7 +27,7 @@ class YellowGame extends React.Component {
   }
 
   onLogoClicked() {
-    this.setState({logoClicked: true})
+    this.setState({ logoClicked: true });
   }
 
   render() {
@@ -38,9 +38,11 @@ class YellowGame extends React.Component {
         return <HostScreen socket={this.socket} />;
       default:
         if (this.state.logoClicked) {
-          return (<MainMenu becomeHost={this.becomeHost} joinGame={this.joinGame} />)          
+          return (
+            <MainMenu becomeHost={this.becomeHost} joinGame={this.joinGame} />
+          );
         } else {
-          return <WelcomeScreen onLogoClicked={this.onLogoClicked} />
+          return <WelcomeScreen onLogoClicked={this.onLogoClicked} />;
         }
     }
   }
