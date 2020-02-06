@@ -9,6 +9,14 @@ const Score = ({ playerName, score }) => {
   );
 };
 
+const Countdown = ({ countdown }) => {
+  if (countdown <= 5) {
+    return <span className="countdown-low">{countdown}</span>;
+  } else {
+    return countdown;
+  }
+};
+
 class Scoreboard extends React.Component {
   constructor(props) {
     super(props);
@@ -39,6 +47,9 @@ class Scoreboard extends React.Component {
   render() {
     return (
       <div className="scoreboard">
+        <h2>
+          <Countdown countdown={this.props.countdown} />
+        </h2>
         <h1>Scoreboard</h1>
         <table>
           {this.props.players.sort(this.compareScores).map(player => (

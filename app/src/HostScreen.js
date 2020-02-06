@@ -24,7 +24,9 @@ class HostScreen extends React.Component {
       hostState: "lobby",
       drawerIndex: 0,
       problemIndex: 0,
-      scores: {}
+      scores: {},
+      currentDrawing:
+        "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
     };
 
     this.startGame = this.startGame.bind(this);
@@ -45,6 +47,10 @@ class HostScreen extends React.Component {
 
       this.setState({ scores: { ...this.state.scores, [player]: newScore } });
     });
+
+    this.props.socket.on("drawBoard", data => {
+      this.setState({ currentDrawing: data });
+    });
   }
 
   startDrawCountdown() {
@@ -58,7 +64,7 @@ class HostScreen extends React.Component {
 
       if (countdown === 0) {
         clearInterval(id);
-        this.startGame();
+        this.startGame(false);
       }
     }, 1000);
   }
@@ -70,7 +76,7 @@ class HostScreen extends React.Component {
       this.setState({ countdown });
       this.props.socket.emit("countdown", countdown);
 
-      if (countdown == 0) {
+      if (countdown === 0) {
         clearInterval(id);
         this.props.socket.emit("gameState", { state: "in_game" });
         this.setState({ hostState: "in_game" });
@@ -79,13 +85,26 @@ class HostScreen extends React.Component {
     }, 1000);
   }
 
-  startGame() {
+  startGame(isFirstGame) {
     const drawer = this.getNextDrawer();
     const problem = this.getNextProblem();
 
+    const previousSubject = this.state.problem
+      ? this.state.problem.subject
+      : null;
+
     this.props.socket.emit("gameState", { state: "starting", drawer, problem });
-    this.props.socket.emit("countdown", 10);
-    this.setState({ hostState: "starting", countdown: 10, drawer });
+
+    const countdown = isFirstGame ? 8 : 15;
+
+    this.props.socket.emit("countdown", countdown);
+    this.setState({
+      hostState: "starting",
+      countdown,
+      drawer,
+      problem,
+      previousSubject
+    });
     this.broadcastCountdown();
   }
 
@@ -108,12 +127,18 @@ class HostScreen extends React.Component {
       case "lobby":
         return (
           <RecruitingPlayers
-            startGame={this.startGame}
+            startGame={() => this.startGame(true)}
             players={this.state.players}
           />
         );
       case "starting":
-        return <GetReady countdown={this.state.countdown} />;
+        return (
+          <GetReady
+            countdown={this.state.countdown}
+            currentDrawing={this.state.currentDrawing}
+            previousSubject={this.state.previousSubject}
+          />
+        );
       case "in_game":
         return (
           <HostDrawingScreen
@@ -121,6 +146,7 @@ class HostScreen extends React.Component {
             scores={this.state.scores}
             drawer={this.state.drawer}
             socket={this.props.socket}
+            countdown={this.state.countdown}
           />
         );
       default:

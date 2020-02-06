@@ -1,11 +1,21 @@
 import React from "react";
 
+const Countdown = ({ countdown }) => {
+  if (countdown <= 5) {
+    return <span className="countdown-low">{countdown}</span>;
+  } else {
+    return countdown;
+  }
+};
+
 class GuessingScreen extends React.Component {
   render() {
     return (
       <div className="guessing-screen">
         <h1>What's being drawn?</h1>
-
+        <h2 className="guessing-screen-countdown">
+          <Countdown countdown={this.props.countdown} />
+        </h2>
         <div className="guessing-screen-keskele">
           <div
             onClick={() => this.props.onGuess(this.props.options[0])}

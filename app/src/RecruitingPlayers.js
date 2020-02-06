@@ -3,6 +3,8 @@ import React from "react";
 class RecruitingPlayers extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = { code: Math.floor(Math.random() * 1000 + 1000) };
   }
 
   render() {
@@ -10,7 +12,7 @@ class RecruitingPlayers extends React.Component {
       <div className="host-screen-container">
         <div className="game-code-info-container">
           <span className="game-code-heading">GAME CODE</span>
-          <span className="game-code-number">339912</span>
+          <span className="game-code-number">{this.state.code}</span>
         </div>
         <div className="host-screen-info">
           <div className="joined-players">

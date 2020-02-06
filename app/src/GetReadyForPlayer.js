@@ -7,14 +7,15 @@ class GetReadyForPlayer extends React.Component {
         <div>
           <p>Get Ready!</p>
           <b>{this.props.countdown}</b>
-          {this.props.isDrawing && (
-            <h2
+          {
+            <p
+              key="you-are-drawing"
               className="you-are-drawing"
               style={{ opacity: this.props.isDrawing ? 1 : 0 }}
             >
               You are drawing!
-            </h2>
-          )}
+            </p>
+          }
         </div>
       </div>
     );

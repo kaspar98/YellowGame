@@ -94,6 +94,7 @@ class GameArea extends React.Component {
           return (
             <GuessingScreen
               options={this.state.problem.options}
+              countdown={this.state.countdown}
               onGuess={this.onGuess}
             />
           );
