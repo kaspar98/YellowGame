@@ -65,12 +65,13 @@ code {
 .submit-button {
   width: 100%;
   background-color: #4CAF50;
-  color: white;
+  font-weight: 500;
   padding: 14px 20px;
   margin: auto;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 25px;
 }
 
 .submit-button:hover {
@@ -109,10 +110,30 @@ code {
   -webkit-background-clip: text;
   -webkit-text-fill-color: rgba(255, 255, 255, 0);
   background-color: #A9A9A9
-  }
+}
+
 .host-screen-container {
   text-align: center;
-  padding: 2%;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.game-code-heading {
+  font-size: 50px;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.game-code-number {
+  font-size: 120px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.game-code-info-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 
   @keyframes animate {
@@ -124,8 +145,24 @@ code {
   }
 }
 .host-screen-info {
-    display: inline-block;
-    text-align: left;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+.joined-players li {
+  list-style-type: none;
+  text-align: left;
+}
+
+.joined-players h1 {
+  font-size: 38px;
+}
+
+.joined-players li {
+  font-weight: 500;
+  font-size: 25px;
 }
 
 #startbutton_flex-container {
@@ -261,4 +298,46 @@ code {
   transform: translate(0px,5px);
   -webkit-transform: translate(0px,5px);
   border-bottom: 1px solid;
+}
+
+.scoreboard {
+  font-size: 29px;
+  font-weight: 500;
+}
+
+.scoreboard table {
+  width: 100% ;
+}
+
+.score-number {
+  text-align: right;
+}
+
+.host-drawing-screen {
+  padding-top: 50px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.host-drawing-canvas-area {
+  padding-left: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.host-drawing-canvas {
+  width: 600px;
+  height: 600px;
+  background-color: white;
+}
+
+.host-drawing-drawer {
+  padding-top: 10px;
+  font-size: 26px;
+  font-weight: 500;
+  text-align: center;
 }

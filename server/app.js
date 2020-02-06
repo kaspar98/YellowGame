@@ -7,7 +7,8 @@ const MESSAGE_TYPES = [
   'playerList',
   'gameState',
   'drawBoard',
-  'countdown'
+  'countdown',
+  'guessSubmitted'
 ];
 
 const broadcastMessage = (messageType, socket) => {

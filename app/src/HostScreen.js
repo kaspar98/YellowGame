@@ -2,13 +2,18 @@ import React from "react";
 
 import GetReady from "./GetReady";
 import RecruitingPlayers from "./RecruitingPlayers";
+import HostDrawingScreen from "./HostDrawingScreen";
 
-function getArrayRandomElement(arr) {
-  if (arr && arr.length) {
-    return arr[Math.floor(Math.random() * arr.length)];
+const problems = [
+  {
+    subject: "Kangaroo",
+    options: ["Panda", "Cat", "Kangaroo", "Audi S3"]
+  },
+  {
+    subject: "Delta Building",
+    options: ["Delta Building", "Computer", "A can of tuna", "Bananas"]
   }
-  // The undefined will be returned if the empty array was passed
-}
+];
 
 class HostScreen extends React.Component {
   constructor(props) {
@@ -16,7 +21,10 @@ class HostScreen extends React.Component {
 
     this.state = {
       players: [],
-      hostState: "lobby"
+      hostState: "lobby",
+      drawerIndex: 0,
+      problemIndex: 0,
+      scores: {}
     };
 
     this.startGame = this.startGame.bind(this);
@@ -27,6 +35,14 @@ class HostScreen extends React.Component {
       this.setState({
         players: [...this.state.players, name]
       });
+    });
+
+    this.props.socket.on("guessSubmitted", ({ player, correct }) => {
+      const currentScore = this.state.scores[player] || 0;
+      const delta = correct ? 10 : -10;
+      const newScore = currentScore + delta;
+
+      this.setState({ scores: { ...this.state.scores, [player]: newScore } });
     });
   }
 
@@ -40,17 +56,33 @@ class HostScreen extends React.Component {
       if (countdown == 0) {
         clearInterval(id);
         this.props.socket.emit("gameState", { state: "in_game" });
+        this.setState({ hostState: "in_game" });
       }
     }, 1000);
   }
 
   startGame() {
-    const drawer = getArrayRandomElement(this.state.players);
+    const drawer = this.getNextDrawer();
+    const problem = this.getNextProblem();
 
-    this.props.socket.emit("gameState", { state: "starting", drawer });
+    this.props.socket.emit("gameState", { state: "starting", drawer, problem });
     this.props.socket.emit("countdown", 10);
-    this.setState({ hostState: "starting", countdown: 10 });
+    this.setState({ hostState: "starting", countdown: 10, drawer });
     this.broadcastCountdown();
+  }
+
+  getNextDrawer() {
+    const index = this.state.drawerIndex;
+
+    this.setState({ drawerIndex: (index + 1) % this.state.players.length });
+    return this.state.players[index];
+  }
+
+  getNextProblem() {
+    const index = this.state.problemIndex;
+
+    this.setState({ problemIndex: (index + 1) % problems.length });
+    return problems[index];
   }
 
   render() {
@@ -64,6 +96,14 @@ class HostScreen extends React.Component {
         );
       case "starting":
         return <GetReady />;
+      case "in_game":
+        return (
+          <HostDrawingScreen
+            players={this.state.players}
+            scores={this.state.scores}
+            drawer={this.state.drawer}
+          />
+        );
       default:
         return null;
     }

@@ -7,7 +7,7 @@ class WaitingForPlayers extends React.Component {
 
   render() {
     return (
-      <div class="waitingplayers">
+      <div className="waitingplayers">
         <div>
           <p>Waiting for players...</p>
         </div>
