@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('/bkg.png');
-  animation:120s scroll infinite linear;
+  background-image: url('/testing.png');
+  animation:90s scroll infinite linear;
 }
 
 code {
@@ -18,12 +18,14 @@ code {
   border-radius: 50%;
   padding: 50px 50px;
   font-size: 70px;
-  background-color: #f44336;
+  background: url("/button.png");
+  background-position:center;
+  font-family: "play", sans-serif;
   margin: 50px;
   height: 250px;
   width: 250px;
   text-align: center;
-  color: black;
+  color: white;
   border: 2px solid orange;
   box-shadow: 2px 2px 1px orange;
 }
@@ -40,16 +42,19 @@ code {
   transition-duration: 0.4s;
 }
 .join-button {
+  background: url("/button.png");
+  background-position:center;
   outline:none;
   border-radius: 50%;
   padding: 50px 50px;
   height: 250px;
   width: 250px;
   font-size: 70px;
+  font-family: "play", sans-serif;
   background-color: #f44336;
   margin: 50px;
   text-align: center;
-  color: black;
+  color: white;
   border: 2px solid orange;
   box-shadow: 2px 2px 1px orange;
 }
@@ -173,6 +178,9 @@ code {
   align-content: space-around;
 }
 #hostorjoinquestion {
+  font-family: "play", sans-serif;
+  font-size: 25px;
+  color: black;
   display:flex;
   align-items: center;
   justify-content: center;
@@ -232,8 +240,12 @@ code {
 
 @keyframes scroll{
   100%{
-    background-position:0 -3600px;
+    background-position:0 -2724px;
   }
+}
+
+.container {
+  overflow: hidden;
 }
 
 .animate
