@@ -10,7 +10,7 @@ class EnterGameCode extends React.Component {
       <div className="enter-code-container">
           <span className="enter-code-text">Enter Game Code</span>
           <div className="enter-code-form">
-            <input className="enter-code-input-field" type="text" name="code" />
+            <input className="enter-code-input-field" type="number" name="code" />
             <input
               className="submit-button"
               type="button"
