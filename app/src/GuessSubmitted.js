@@ -1,6 +1,6 @@
 import React from "react";
-import CorrectAnswer from "./CorrectAnswer"
-import WrongAnswer from "./WrongAnswer"
+import CorrectAnswer from "./CorrectAnswer";
+import WrongAnswer from "./WrongAnswer";
 
 class GuessSubmitted extends React.Component {
   render() {

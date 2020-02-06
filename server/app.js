@@ -14,7 +14,7 @@ const MESSAGE_TYPES = [
 const broadcastMessage = (messageType, socket) => {
   return message => {
     socket.broadcast.emit(messageType, message);
-    console.log(messageType + ':', message);
+    // console.log(messageType + ':', message);
   }
 };
 

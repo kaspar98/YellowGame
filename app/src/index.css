@@ -406,3 +406,28 @@ body {
   -webkit-text-fill-color: rgba(255, 255, 255, 0);
   background-color: #A9A9A9
 }
+
+.drawer-drawing-screen {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:  column;
+}
+
+.drawer-drawing-canvas-area {
+  margin-top: 10px;
+  width: 80vmin;
+  height: 80vmin;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.drawer-drawing-screen-text {
+  text-transform: uppercase;
+  font-size: 38px;
+}
+
+.drawer-drawing-screen-timer-text {
+  font-size: 20px;
+}
