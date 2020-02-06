@@ -8,22 +8,27 @@ class RecruitingPlayers extends React.Component {
   render() {
     return (
       <div className="host-screen-container">
-        <h1 id="gameCode">GAME CODE: 339912</h1>
-        <div className="host-screen-info">
-          <h3>JOINED PLAYERS</h3>
-          <ul>
-            {this.props.players.map(name => (
-              <li key={name}>{name}</li>
-            ))}
-          </ul>
+        <div className="game-code-info-container">
+          <span className="game-code-heading">GAME CODE</span>
+          <span className="game-code-number">339912</span>
         </div>
-        <div className="host-screen-start">
-          <input
-            className="submit-button"
-            type="button"
-            onClick={this.props.startGame}
-            value="Start when ALL have joined"
-          />
+        <div className="host-screen-info">
+          <div className="joined-players">
+            <h1>JOINED PLAYERS</h1>
+            <ul>
+              {this.props.players.map(name => (
+                <li key={name}>{name}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="host-screen-start">
+            <input
+              className="submit-button"
+              type="button"
+              onClick={this.props.startGame}
+              value="Start when ALL have joined"
+            />
+          </div>
         </div>
       </div>
     );
