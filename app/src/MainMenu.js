@@ -9,11 +9,11 @@ class MainMenu extends React.Component {
     const { becomeHost, joinGame } = this.props;
 
     return (
-      <React.Fragment>
-        <div id="hostorjoinquestion">
+      <div className="main-menu">
+        <div className="main-menu-title">
           <h1>Do you want to host a game or join an existing game?</h1>
         </div>
-        <div id="startbutton_flex-container">
+        <div className="start-buttons">
           <div>
             <button className="host-button" onClick={becomeHost}>
               Host
@@ -25,7 +25,7 @@ class MainMenu extends React.Component {
             </button>
           </div>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }
