@@ -52,7 +52,7 @@ class Scoreboard extends React.Component {
         </h2>
         <h1>Scoreboard</h1>
         <table>
-          {this.props.players.sort(this.compareScores).map(player => (
+          {[...this.props.players].sort(this.compareScores).map(player => (
             <Score
               key={player}
               playerName={player}

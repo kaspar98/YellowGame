@@ -22,6 +22,9 @@ class YellowGame extends React.Component {
     if (window.yellowGameHost) {
       this.setState({ deviceType: "host" });
     }
+
+    this.socket.emit('hostGame', {});
+    this.setState({ deviceType: "host" });
   }
 
   joinGame() {

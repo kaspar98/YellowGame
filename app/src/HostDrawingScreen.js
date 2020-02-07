@@ -10,12 +10,20 @@ class HostDrawingScreen extends React.Component {
       data:
         "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
     };
+
+    this.onDrawBoard = this.onDrawBoard.bind(this);
   }
 
   componentDidMount() {
-    this.props.socket.on("drawBoard", data => {
-      this.setState({ data });
-    });
+    this.props.socket.on("drawBoard", this.onDrawBoard);
+  }
+
+  onDrawBoard(data) {
+    this.setState({ data });
+  }
+
+  componentWillUnmount() {
+    this.props.socket.removeListener("drawBoard", this.onDrawBoard);
   }
 
   render() {

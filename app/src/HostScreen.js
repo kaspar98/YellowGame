@@ -122,7 +122,9 @@ class HostScreen extends React.Component {
   }
 
   componentDidMount() {
+    console.log('Host screen mounted');
     this.props.socket.on("playerJoin", ({ name }) => {
+      console.log('Player joined', name);
       this.setState({
         players: [...this.state.players, name]
       });
@@ -139,6 +141,10 @@ class HostScreen extends React.Component {
     this.props.socket.on("drawBoard", data => {
       this.setState({ currentDrawing: data });
     });
+  }
+
+  componentWillUnmount() {
+    console.log('Host screen will unmount');
   }
 
   startDrawCountdown() {
@@ -174,8 +180,12 @@ class HostScreen extends React.Component {
   }
 
   startGame(isFirstGame) {
+    console.log('startGame called');
     const drawer = this.getNextDrawer();
     const problem = this.getNextProblem();
+
+    console.log('Next problem:', problem);
+    console.log('Drawer:', drawer);
 
     const previousSubject = this.state.problem
       ? this.state.problem.subject
@@ -198,6 +208,10 @@ class HostScreen extends React.Component {
 
   getNextDrawer() {
     const index = this.state.drawerIndex;
+    console.log('Current drawer index was', index);
+    console.log('Next drawer index is', (index + 1) % this.state.players.length);
+    console.log('Index corresponds to player', this.state.players[index]);
+    console.log('Players list:', this.state.players);
 
     this.setState({ drawerIndex: (index + 1) % this.state.players.length });
     return this.state.players[index];
