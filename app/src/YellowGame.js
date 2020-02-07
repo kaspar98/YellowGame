@@ -19,7 +19,9 @@ class YellowGame extends React.Component {
   }
 
   becomeHost() {
-    this.setState({ deviceType: "host" });
+    if (window.yellowGameHost) {
+      this.setState({ deviceType: "host" });
+    }
   }
 
   joinGame() {
