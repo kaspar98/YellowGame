@@ -7,7 +7,6 @@ const MESSAGE_TYPES = [
   'playerJoin',
   'playerList',
   'gameState',
-  'drawBoard',
   'countdown',
   'guessSubmitted'
 ];
@@ -15,7 +14,9 @@ const MESSAGE_TYPES = [
 const broadcastMessage = (messageType, socket) => {
   return message => {
     socket.broadcast.emit(messageType, message);
-    // console.log(messageType + ':', message);
+    if (messageType !== 'drawBoard') {
+      console.log(messageType + ':', message);
+    }
   }
 };
 
@@ -33,6 +34,14 @@ io.on('connection', socket => {
   console.log('User has connected');
 
   registerMessageHandlers(socket);
+
+  socket.on('hostGame', () => {
+    socket.join('hostGame');
+  });
+
+  socket.on('drawBoard', message => {
+    io.to('hostGame').emit('drawBoard', message);
+  });
 });
 
 http.listen(14000, function(){
