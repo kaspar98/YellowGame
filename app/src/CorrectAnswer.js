@@ -4,12 +4,8 @@ class CorrectAnswer extends React.Component {
   render() {
     return (
       <div class="youhaveguessed">
-        <div>
-          <h1>Correct answer!</h1>
-        </div>
-        <div>
-          <p>Wait for others...</p>
-        </div>
+        <p>Correct answer!</p>
+        <p>Wait for others...</p>
       </div>
     );
   }

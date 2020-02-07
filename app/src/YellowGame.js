@@ -9,7 +9,7 @@ class YellowGame extends React.Component {
   constructor(props) {
     super(props);
 
-    this.socket = io.connect("http://192.168.1.23:14000");
+    this.socket = io.connect("/");
 
     this.state = { deviceType: null, logoClicked: false };
 

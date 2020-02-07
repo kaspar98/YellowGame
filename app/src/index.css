@@ -20,13 +20,14 @@ body {
   font-size: 70px;
   background: url("/button.png");
   background-position:center;
-  text-align: center;
   color: white;
   border: 2px solid orange;
   box-shadow: 2px 2px 1px orange;
   width: 210px;
   height: 210px;
   border-radius: 210px;
+  display: flex;
+  justify-content: center;
 }
 .host-button:hover {
   height: 300px;
@@ -50,10 +51,11 @@ body {
   font-size: 70px;
   background-color: #f44336;
   margin: 50px;
-  text-align: center;
   color: white;
   border: 2px solid orange;
   box-shadow: 2px 2px 1px orange;
+  display: flex;
+  justify-content: center;
 }
 
 .enter-code-container {
@@ -95,6 +97,8 @@ body {
   font-size: 25px;
   color: white;
   flex: 0 0 14px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
 }
 
 .submit-button:hover {
@@ -111,20 +115,23 @@ body {
   text-align: center;
 }
 
-.waitingplayers{
+.waitingplayers {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 80%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
-.waitingplayers>div {
-  height: 500px;
+.waitingplayers p {
   text-align: center;
-  width: 100%;
   letter-spacing: 4px;
   font-size: 400%;
-  margin-top: 10%;
   font-weight: bold;
   overflow: hidden;
   background: linear-gradient(to left, #C7CEEA, #B5EAD7, #E2F0CB, #FFDAC1, #FFB7B2,#FF9AA2);
@@ -280,19 +287,16 @@ body {
   -webkit-transition: all 0.1s;
 }
 
-.action-button
-{
-  position: relative;
+.action-button {
   padding: 10px 40px;
   margin: 0px 10px 10px 0px;
-  float: left;
   border-radius: 10px;
   color: #000;
   height: 69px;
   width: 200px;
   display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
 }
 
 .button-text
@@ -411,15 +415,26 @@ body {
   transition: opacity 0.9s ease;
 }
 
-.youhaveguessed>div {
-  height: 500px;
+.youhaveguessed {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.youhaveguessed p {
   text-align: center;
-  width: 100%;
   letter-spacing: 4px;
   font-size: 200%;
-  margin-top: 10%;
   font-weight: bold;
-  overflow: hidden;
   background: linear-gradient(to left, #C7CEEA, #B5EAD7, #E2F0CB, #FFDAC1, #FFB7B2,#FF9AA2);
   background-repeat: no-repeat;
   background-size: 80%;
