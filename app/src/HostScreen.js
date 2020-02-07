@@ -6,12 +6,24 @@ import HostDrawingScreen from "./HostDrawingScreen";
 
 const problems = [
   {
-    subject: "Kangaroo",
-    options: ["Panda", "Cat", "Kangaroo", "Audi S3"]
+    subject: "Octopus", // Sandra
+    options: ["Octopus", "Palm tree", "Flower", "Rag on a stick"]
   },
   {
-    subject: "Delta Building",
-    options: ["Delta Building", "Computer", "A can of tuna", "Bananas"]
+    subject: "Waterfall", // Zürii (Sarah telefon)
+    options: ['Tears', 'Waterfall', 'Ocean', 'Rainy Day']
+  },
+  {
+    subject: "Pyramid", // Sarah (oma arvutis)
+    options: ["Delta Building", "Slice of pizza", "Triangle", "Pyramid"]
+  },
+  {
+    subject: 'Toyota Corolla', // Geoff
+    options: ['Tesla Model S', 'Toyota Corolla', 'Ford Focus', 'Bicycle']
+  },
+  {
+    subject: "Flower",
+    options: ["Octopus", "Palm tree", "Flower", "Rag on a stick"]
   },
   {
     subject: "Rope",
@@ -40,14 +52,6 @@ const problems = [
   {
     subject: "River",
     options: ["Charger", "Rope", "Snake", "River"]
-  },
-  {
-    subject: "Flower",
-    options: ["Octopus", "Palm tree", "Flower", "Rag on a stick"]
-  },
-  {
-    subject: "Pyramid",
-    options: ["Delta Building", "Slice of pizza", "Triangle", "Pyramid"]
   },
   {
     subject: "Dog",
@@ -88,10 +92,6 @@ const problems = [
   {
     subject: "Charger",
     options: ["Charger", "Rope", "Snake", "River"]
-  },
-  {
-    subject: "Octopus",
-    options: ["Octopus", "Palm tree", "Flower", "Rag on a stick"]
   },
   {
     subject: "Triangle",
