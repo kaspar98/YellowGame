@@ -1,4 +1,5 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 
@@ -26,9 +27,7 @@ const registerMessageHandlers = socket => {
   }
 };
 
-app.get('/', (req, res) => {
-  res.send('Server is running!');
-});
+app.use(express.static('react-app'))
 
 io.on('connection', socket => {
   console.log('User has connected');

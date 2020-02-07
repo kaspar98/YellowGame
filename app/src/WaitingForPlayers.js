@@ -4,9 +4,7 @@ class WaitingForPlayers extends React.Component {
   render() {
     return (
       <div className="waitingplayers">
-        <div>
-          <p>Waiting for players...</p>
-        </div>
+        <p>Waiting for players...</p>
       </div>
     );
   }

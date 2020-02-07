@@ -6,7 +6,7 @@ class GetReadyForPlayer extends React.Component {
       <div className="waitingplayers">
         <div>
           <p>Get Ready!</p>
-          <b>{this.props.countdown}</b>
+          <p>{this.props.countdown}</p>
           {
             <p
               key="you-are-drawing"

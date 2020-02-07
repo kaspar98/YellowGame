@@ -11,13 +11,13 @@ class MainMenu extends React.Component {
         </div>
         <div className="start-buttons">
           <div>
-            <button className="host-button" onClick={becomeHost}>
-              Host
+            <button className="join-button" onClick={joinGame}>
+              Join
             </button>
           </div>
           <div>
-            <button className="join-button" onClick={joinGame}>
-              Join
+            <button className="host-button" onClick={becomeHost}>
+              Host
             </button>
           </div>
         </div>
