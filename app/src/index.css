@@ -20,6 +20,7 @@ body {
   font-size: 70px;
   background: url("/button.png");
   background-position:center;
+  background-color: #F57C00;
   color: white;
   border: 2px solid orange;
   box-shadow: 2px 2px 1px orange;
@@ -49,7 +50,7 @@ body {
   height: 210px;
   width: 210px;
   font-size: 70px;
-  background-color: #f44336;
+  background-color: #F57C00;
   margin: 50px;
   color: white;
   border: 2px solid orange;
@@ -491,4 +492,24 @@ body {
   border-width: 5px;
   border-color: #F9A825;
   background-color: #f5f5f5;
+}
+
+.wrong-answer-container {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 0, 0, 0.25);
+}
+
+.correct-answer-container {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(38, 194, 129, 0.25);
 }

@@ -114,7 +114,8 @@ class HostScreen extends React.Component {
       problemIndex: 0,
       scores: {},
       currentDrawing:
-        "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      code: Math.floor(Math.random() * 1000 + 1000)
     };
 
     this.startGame = this.startGame.bind(this);
@@ -224,13 +225,14 @@ class HostScreen extends React.Component {
     return problems[index];
   }
 
-  render() {
+  renderHostState() {
     switch (this.state.hostState) {
       case "lobby":
         return (
           <RecruitingPlayers
             startGame={() => this.startGame(true)}
             players={this.state.players}
+            code={this.state.code}
           />
         );
       case "starting":
@@ -249,11 +251,23 @@ class HostScreen extends React.Component {
             drawer={this.state.drawer}
             socket={this.props.socket}
             countdown={this.state.countdown}
+            code={this.state.code}
           />
         );
       default:
         return null;
     }
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <audio controls autoPlay style={{display: "none"}}>
+          <source src="http://soundimage.org/wp-content/uploads/2017/05/Hypnotic-Puzzle3.mp3" />
+        </audio>
+        {this.renderHostState()}
+      </React.Fragment>
+    );
   }
 }
 

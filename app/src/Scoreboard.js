@@ -47,12 +47,13 @@ class Scoreboard extends React.Component {
   render() {
     return (
       <div className="scoreboard">
+        <h2>GAME CODE<br /> {this.props.code}</h2>
         <h2>
           <Countdown countdown={this.props.countdown} />
         </h2>
         <h1>Scoreboard</h1>
         <table>
-          {[...this.props.players].sort(this.compareScores).map(player => (
+          {[...this.props.players].sort(this.compareScores).slice(0, 9).map(player => (
             <Score
               key={player}
               playerName={player}

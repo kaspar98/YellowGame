@@ -3,8 +3,6 @@ import React from "react";
 class RecruitingPlayers extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = { code: Math.floor(Math.random() * 1000 + 1000) };
   }
 
   render() {
@@ -12,13 +10,13 @@ class RecruitingPlayers extends React.Component {
       <div className="host-screen-container">
         <div className="game-code-info-container">
           <span className="game-code-heading">GAME CODE</span>
-          <span className="game-code-number">{this.state.code}</span>
+          <span className="game-code-number">{this.props.code}</span>
         </div>
         <div className="host-screen-info">
           <div className="joined-players">
-            <h1>JOINED PLAYERS</h1>
+            <h1>JOINED PLAYERS ({this.props.players.length})</h1>
             <ul>
-              {this.props.players.map(name => (
+              {this.props.players.slice(0, 9).map(name => (
                 <li key={name}>{name}</li>
               ))}
             </ul>
@@ -28,7 +26,7 @@ class RecruitingPlayers extends React.Component {
               className="submit-button"
               type="button"
               onClick={this.props.startGame}
-              value="Start when ALL have joined"
+              value="Press when ready"
             />
           </div>
         </div>
