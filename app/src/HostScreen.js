@@ -262,7 +262,7 @@ class HostScreen extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <audio controls autoPlay style={{display: "none"}}>
+        <audio controls autoPlay loop style={{display: "none"}}>
           <source src="http://soundimage.org/wp-content/uploads/2017/05/Hypnotic-Puzzle3.mp3" />
         </audio>
         {this.renderHostState()}
