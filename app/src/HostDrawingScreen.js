@@ -29,11 +29,14 @@ class HostDrawingScreen extends React.Component {
   render() {
     return (
       <div className="host-drawing-screen">
-        <Scoreboard
-          players={this.props.players}
-          scores={this.props.scores}
-          countdown={this.props.countdown}
-        />
+        <div className="drawing-left-side">
+          <Scoreboard
+            players={this.props.players}
+            scores={this.props.scores}
+            countdown={this.props.countdown}
+            code={this.props.code}
+          />
+        </div>
         <div className="host-drawing-canvas-area">
           <img src={this.state.data} className="host-drawing-canvas" />
           <div className="host-drawing-drawer">

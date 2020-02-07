@@ -3,9 +3,11 @@ import React from "react";
 class CorrectAnswer extends React.Component {
   render() {
     return (
-      <div class="youhaveguessed">
-        <p>Correct answer!</p>
-        <p>Wait for others...</p>
+      <div className="correct-answer-container">
+        <div className="youhaveguessed">
+          <p>Correct answer!</p>
+          <p>Wait for others...</p>
+        </div>
       </div>
     );
   }

@@ -16,7 +16,7 @@ class EnterName extends React.Component {
 
   setName() {
     if (this.state.inputValue.length > 0) {
-      this.props.setName(this.state.inputValue);
+      this.props.setName(this.state.inputValue.substring(0, 15));
     }
   }
 
