@@ -183,7 +183,7 @@ class HostScreen extends React.Component {
 
     this.props.socket.emit("gameState", { state: "starting", drawer, problem });
 
-    const countdown = isFirstGame ? 8 : 15;
+    const countdown = isFirstGame ? 8 : 13;
 
     this.props.socket.emit("countdown", countdown);
     this.setState({
