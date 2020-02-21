@@ -4,103 +4,73 @@ import GetReady from "./GetReady";
 import RecruitingPlayers from "./RecruitingPlayers";
 import HostDrawingScreen from "./HostDrawingScreen";
 
-const problems = [
-  {
-    subject: "Octopus", // Sandra
-    options: ["Octopus", "Palm tree", "Flower", "Rag on a stick"]
-  },
-  {
-    subject: "Waterfall", // Zürii (Sarah telefon)
-    options: ['Tears', 'Waterfall', 'Ocean', 'Rainy Day']
-  },
-  {
-    subject: "Pyramid", // Sarah (oma arvutis)
-    options: ["Delta Building", "Slice of pizza", "Triangle", "Pyramid"]
-  },
-  {
-    subject: 'Toyota Corolla', // Geoff
-    options: ['Tesla Model S', 'Toyota Corolla', 'Ford Focus', 'Bicycle']
-  },
-  {
-    subject: "Flower",
-    options: ["Octopus", "Palm tree", "Flower", "Rag on a stick"]
-  },
-  {
-    subject: "Rope",
-    options: ["Snake", "Rope", "Tornado", "Spring"]
-  },
-  {
-    subject: "Petri dish",
-    options: ["Basketball", "Tennis ball", "The Moon", "Petri dish"]
-  },
-  {
-    subject: "Hippo",
-    options: ["Sphinx", "Lion", "Cat", "Hippo"]
-  },
-  {
-    subject: "Foam party",
-    options: ["Car wash", "Foam party", "Birthday surprise", "Pit fight"]
-  },
-  {
-    subject: "Orange",
-    options: ["Orange", "Wheel", "Basketball", "Planet"]
-  },
-  {
-    subject: "Straw",
-    options: ["Pen", "Stick", "Straw", "Candle"]
-  },
-  {
-    subject: "River",
-    options: ["Charger", "Rope", "Snake", "River"]
-  },
-  {
-    subject: "Dog",
-    options: ["Dog", "Cat", "Cow", "Pig"]
-  },
-  {
-    subject: "Audi S3",
-    options: ["Panda", "Cat", "Kangaroo", "Audi S3"]
-  },
-  {
-    subject: "Computer",
-    options: ["Delta Building", "Computer", "A can of tuna", "Bananas"]
-  },
-  {
-    subject: "Snake",
-    options: ["Snake", "Rope", "Tornado", "Spring"]
-  },
-  {
-    subject: "Tennis ball",
-    options: ["Basketball", "Tennis ball", "The Moon", "Petri dish"]
-  },
-  {
-    subject: "Sphinx",
-    options: ["Sphinx", "Lion", "Cat", "Hippo"]
-  },
-  {
-    subject: "Car wash",
-    options: ["Car wash", "Foam party", "Birthday surprise", "Pit fight"]
-  },
-  {
-    subject: "Wheel",
-    options: ["Orange", "Wheel", "Basketball", "Planet"]
-  },
-  {
-    subject: "Stick",
-    options: ["Pen", "Stick", "Straw", "Candle"]
-  },
-  {
-    subject: "Charger",
-    options: ["Charger", "Rope", "Snake", "River"]
-  },
-  {
-    subject: "Triangle",
-    options: ["Delta Building", "Slice of pizza", "Triangle", "Pyramid"]
-  },
-  {
-    subject: "Cow",
-    options: ["Dog", "Cat", "Cow", "Pig"]
-  }
+const getRandom = (arr, n) => {
+    var result = new Array(n),
+        len = arr.length,
+        taken = new Array(len);
+    if (n > len)
+        throw new RangeError("More elements taken than available");
+    while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = arr[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+    }
+    return result;
+};
+
+const shuffleArray = arr => arr.sort(() => Math.random() - 0.5);
+
+const words = [
+  'corn',
+  'face',
+  'flag',
+  'snowflake',
+  'rabbit',
+  'grass',
+  'worm',
+  'hair',
+  'giraffe',
+  'candle',
+  'blocks',
+  'girl',
+  'triangle',
+  'spider',
+  'zebra',
+  'person',
+  'bumblebee',
+  'banana',
+  'sea',
+  'chicken',
+  'mitten',
+  'angel',
+  'bunny',
+  'octopus',
+  'cupcake',
+  'bee',
+  'drum',
+  'basketball',
+  'leg',
+  'blanket',
+  'ring',
+  'turtle',
+  'ice cream cone',
+  'motorcycle',
+  'rainbow',
+  'butterfly',
+  'whale',
+  'alive',
+  'camera',
+  'orange',
+  'bark',
+  'king',
+  'bathroom',
+  'socks',
+  'doll',
+  'crack',
+  'jail',
+  'lips',
+  'plant',
+  'ears'
 ];
 
 class HostScreen extends React.Component {
@@ -219,10 +189,12 @@ class HostScreen extends React.Component {
   }
 
   getNextProblem() {
-    const index = this.state.problemIndex;
+    const options = getRandom(words, 4);
 
-    this.setState({ problemIndex: (index + 1) % problems.length });
-    return problems[index];
+    return {
+      subject: options[0],
+      options: shuffleArray(options)
+    };
   }
 
   renderHostState() {
